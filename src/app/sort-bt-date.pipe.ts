@@ -5,8 +5,11 @@ import { Product } from './models/product.model';
   name: 'sortBtDate'
 })
 export class SortBtDatePipe implements PipeTransform {
-  transform(products: Product[]): any {
-    return products.sort((a, b) => { return b.dateajout.getTime() - a.dateajout.getTime() });
+  transform(products: Product[], order?: any) {
+    let desc = !(order && order === "asc");
+    return products.sort((a, b) => {
+      if (desc) return b.dateajout.getTime() - a.dateajout.getTime()
+      else return a.dateajout.getTime() - b.dateajout.getTime();
+    });
   }
-
 }
