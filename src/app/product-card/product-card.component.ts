@@ -1,10 +1,12 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.css']
+  styleUrls: ['./product-card.component.css'],
+  providers: [DatePipe]
 })
 
 export class ProductCardComponent implements OnInit {
@@ -21,6 +23,7 @@ export class ProductCardComponent implements OnInit {
 
   // Gestion prix d'origine
   selectprice: number = 0;
+
   ngOnInit() {
     this.selectprice = this.myproduct.price
   }

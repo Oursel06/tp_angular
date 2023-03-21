@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Product } from './models/product.model';
 
@@ -18,6 +19,7 @@ export class AppComponent {
         234000,
         0,
         false,
+        new Date("03/16/2022"),
         ["rouge", "orange", "blanc", "noir", "gris", "bleu"]
       ),
 
@@ -28,6 +30,7 @@ export class AppComponent {
         3400000,
         0,
         false,
+        new Date("03/03/2022"),
         ["noir", "blanc", "gris"]),
 
       new Product(
@@ -37,6 +40,7 @@ export class AppComponent {
         1250000,
         0,
         false,
+        new Date("03/19/2022"),
         ["rouge", "gris", "noir", "bleu"])
     ]
   }
