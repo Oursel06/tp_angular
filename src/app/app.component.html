@@ -1,4 +1,4 @@
 <h1 style="text-align: center;">Voitures de sport</h1>
 <div style="text-align: center;">
-    <app-product-card *ngFor="let product of products" [myproduct]="product"></app-product-card>
+    <app-product-card *ngFor="let product of (products | sortBtDate)" [myproduct]="product"></app-product-card>
 </div>
