@@ -12,6 +12,7 @@ import { SortByNamePipe } from './pipes/sort-by-name.pipe';
 import { ProductListComponent } from './product-list/product-list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FooterComponent } from './footer/footer.component';
     SortByNamePipe,
     ProductListComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProductDetailComponent
   ],
   exports: [
     SortBtDatePipe,
