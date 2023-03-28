@@ -1,8 +1,3 @@
-<div style="text-align: center;">
-    <h1>{{title}}</h1>
-    <input placeholder="Rechercher une voiture..." type="text" id="search" name="search" [(ngModel)]="search" />
-    <p *ngIf="search">Résultat pour : {{search}}</p>
-</div>
-<div style="text-align: center;">
-    <app-product-card *ngFor="let product of (products | sortByName: search)" [myproduct]="product"></app-product-card>
-</div>
+<app-header [title]="title"></app-header>
+<app-product-list></app-product-list>
+<app-footer></app-footer>

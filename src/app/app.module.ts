@@ -9,6 +9,9 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { SortBtDatePipe } from './sort-bt-date.pipe';
 import { FormsModule } from '@angular/forms';
 import { SortByNamePipe } from './sort-by-name.pipe';
+import { ProductListComponent } from './product-list/product-list.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { SortByNamePipe } from './sort-by-name.pipe';
     AppComponent,
     ProductCardComponent,
     SortBtDatePipe,
-    SortByNamePipe
+    SortByNamePipe,
+    ProductListComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   exports: [
     SortBtDatePipe,
