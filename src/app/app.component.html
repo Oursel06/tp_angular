@@ -1,4 +1,8 @@
-<h1 style="text-align: center;">Voitures de sport</h1>
 <div style="text-align: center;">
-    <app-product-card *ngFor="let product of (products | sortBtDate: 'desc')" [myproduct]="product"></app-product-card>
+    <h1>{{title}}</h1>
+    <input placeholder="Rechercher une voiture..." type="text" id="search" name="search" [(ngModel)]="search" />
+    <p *ngIf="search">Résultat pour : {{search}}</p>
+</div>
+<div style="text-align: center;">
+    <app-product-card *ngFor="let product of (products | sortByName: search)" [myproduct]="product"></app-product-card>
 </div>

@@ -10,7 +10,7 @@
                     style="width: 120px; margin: 10px; height: 50px; border: solid 1px gainsboro; background: darkorange; border-radius: 10px; cursor: pointer;">{{selectprice | currency: "EUR"}}</button>
                 <button
                     style="width: 50px; margin: 10px; height: 50px; border: solid 1px gainsboro; background: darkorange; border-radius: 10px; cursor: pointer;"
-                    (click)="onAddLike()">Like</button>
+                    (click)="onLike()">Like</button>
                 <p [ngStyle]="{color: myproduct.like > 0 ? 'green' : 'red'}">{{myproduct.like}}♥</p>
                 <select *ngIf="myproduct.color" (change)="changecolor($event)" name="couleur" id="couleur">
                     <option value="">--Choisir une couleur--</option>

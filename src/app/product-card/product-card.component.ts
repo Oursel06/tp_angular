@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/product.model';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-product-card',
@@ -11,14 +12,11 @@ import { Product } from '../models/product.model';
 
 export class ProductCardComponent implements OnInit {
   @Input() myproduct!: Product
-  onAddLike() {
-    if (this.myproduct.isLiked) {
-      this.myproduct.like--
-    }
-    else {
-      this.myproduct.like++
-    }
-    this.myproduct.isLiked = !this.myproduct.isLiked;
+
+  constructor(private productsService: ProductsService) { }
+
+  onLike() {
+    this.productsService.onAddLike(this.myproduct)
   }
 
   // Gestion prix d'origine
