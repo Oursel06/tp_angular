@@ -13,6 +13,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductListComponent,
     HeaderComponent,
     FooterComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AboutComponent
   ],
   exports: [
     SortBtDatePipe,
