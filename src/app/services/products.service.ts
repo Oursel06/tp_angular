@@ -9,6 +9,16 @@ export class ProductsService {
   getAllProducts() {
     return this.products
   }
+  getOneProduct(id: number): Product {
+    let product = this.products.find((p) => p.id === id)
+    if (product) {
+      return product
+    }
+    else {
+      throw new Error("Product not found")
+    }
+  }
+
 
   onAddLike(product: Product): void {
     if (product.isLiked) {
