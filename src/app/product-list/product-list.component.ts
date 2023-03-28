@@ -11,14 +11,12 @@ export class ProductListComponent {
 
   products!: Product[];
   search: string = '';
-  title: string = '';
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
     this.products = this.productsService.products;
     this.search = '';
-    this.title = 'Voitures de sport';
   }
 
 }

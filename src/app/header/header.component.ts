@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  products!: Product[];
+  search: string = '';
   title: string = '';
 
   ngOnInit() {
     this.title = 'Voitures de sport';
+    this.search = '';
   }
 }
