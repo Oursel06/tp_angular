@@ -4,6 +4,7 @@
         <img width="300" src={{myproduct.imageUrl}}>
         <div style="margin-left: 0; margin-right: 0;  text-align: center;">
             <p>{{myproduct.description}}</p>
+            <a [routerLink]="['product/', myproduct.id]">Voir plus</a>
             <div
                 style="display: flex; width: 100%; background-color: gainsboro; flex-wrap: wrap; justify-content: space-evenly; align-items: center;">
                 <button
