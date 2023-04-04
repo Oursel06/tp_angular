@@ -13,11 +13,9 @@ export class ProductListComponent {
   products!: Product[];
   search: string = '';
 
-  private productsObservable: Observable<Product[]>;
+  productsObservable!: Observable<any>;
 
-  constructor(private productsService: ProductsService) {
-    this.productsObservable = new Observable<[]>
-  }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
 
