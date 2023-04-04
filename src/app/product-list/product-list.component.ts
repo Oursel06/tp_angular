@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../models/product.model';
 import { ProductsService } from '../services/products.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -12,10 +13,15 @@ export class ProductListComponent {
   products!: Product[];
   search: string = '';
 
-  constructor(private productsService: ProductsService) { }
+  private productsObservable: Observable<Product[]>;
+
+  constructor(private productsService: ProductsService) {
+    this.productsObservable = new Observable<[]>
+  }
 
   ngOnInit() {
-    this.products = this.productsService.products;
+
+    this.productsObservable = this.productsService.getAllProducts();
     this.search = '';
   }
 
