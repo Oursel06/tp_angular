@@ -11,7 +11,7 @@ import { ProductsService } from '../services/products.service';
 })
 
 export class ProductCardComponent implements OnInit {
-  @Input() myproduct!: Product
+  @Input() myproduct!: any
 
   constructor(private productsService: ProductsService) { }
 

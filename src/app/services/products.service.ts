@@ -14,14 +14,8 @@ export class ProductsService {
     // return this.products
     return <Observable<Product[]>>this.http.get('http://localhost:3000/products')
   }
-  getOneProduct(id: number): Product {
-    let product = this.products.find((p) => p.id === id)
-    if (product) {
-      return product
-    }
-    else {
-      throw new Error("Product not found")
-    }
+  getOneProduct(id: number): Observable<Product> {
+    return <Observable<Product>>this.http.get(`http://localhost:3000/products/${id}`);
   }
 
 
