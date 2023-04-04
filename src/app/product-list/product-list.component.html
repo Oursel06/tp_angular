@@ -1,6 +1,6 @@
 <div style="text-align: center;">
     <input placeholder="Rechercher une voiture..." type="text" id="search" name="search" [(ngModel)]="search" />
     <p *ngIf="search">Résultat pour : {{search}}</p>
-    <a *ngFor="let product of (productsObservable | async | sortByName: search)" [routerLink]="['product', product.id]">
-        <app-product-card [myproduct]="product"></app-product-card></a>
+    <app-product-card *ngFor="let product of (productsObservable | async | sortByName: search)"
+        [myproduct]="product"></app-product-card>
 </div>
