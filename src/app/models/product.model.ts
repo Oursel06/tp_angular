@@ -7,6 +7,7 @@ export class Product {
         public price: number,
         public like: number,
         public isLiked: boolean,
+        public isFavoris: boolean,
         public dateajout: Date,
         public color?: Array<string>) {
     }

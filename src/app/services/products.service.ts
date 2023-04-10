@@ -28,4 +28,9 @@ export class ProductsService {
     }
     product.isLiked = !product.isLiked;
   }
+
+  onAddFavoris(product: Product): void {
+    product.isFavoris = !product.isFavoris;
+    console.log(product.isFavoris ? "Produit N°" + product.id + " mis en favoris " : "Produit N°" + product.id + " n'est plus en favoris ");
+  }
 }

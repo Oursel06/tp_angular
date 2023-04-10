@@ -1,0 +1,20 @@
+ul {
+    text-align: right;
+    padding: 0;
+    background: gainsboro;
+    font-family: Arial, sans serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+li {
+    display: inline-block;
+}
+
+a {
+    display: block;
+    font-size: large;
+    padding: 15px;
+    color: darkorange;
+    text-decoration: none;
+}

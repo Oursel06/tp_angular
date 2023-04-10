@@ -19,6 +19,10 @@ export class ProductCardComponent implements OnInit {
     this.productsService.onAddLike(this.myproduct)
   }
 
+  onFavoris() {
+    this.productsService.onAddFavoris(this.myproduct)
+  }
+
   // Gestion prix d'origine
   selectprice: number = 0;
 

@@ -1,6 +1,10 @@
-<div style="text-align: center;">
-    <input placeholder="Rechercher une voiture..." type="text" id="search" name="search" [(ngModel)]="search" />
+<div style="text-align: center; position: relative;">
+    <p><input style="width: 90%; padding: 10px; border-radius: 10px; border: solid 2px gainsboro;"
+            placeholder=" Rechercher une voiture..." type="text" id="search" name="search" [(ngModel)]="search" />
+    </p>
     <p *ngIf="search">Résultat pour : {{search}}</p>
-    <app-product-card *ngFor="let product of (productsObservable | async | sortByName: search)"
-        [myproduct]="product"></app-product-card>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr);  background-color: gainsboro;">
+        <app-product-card *ngFor="let product of (productsObservable | async | sortByName: search)"
+            [myproduct]="product"></app-product-card>
+    </div>
 </div>

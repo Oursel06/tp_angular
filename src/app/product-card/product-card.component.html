@@ -2,17 +2,70 @@
 récupérer ce nombre en cliquant sur acheter
 Mettre nombre d'articles + prix et total dans localstorage -->
 
+<style>
+    .voirplus:hover {
+        transform: scale(1.1);
+        transition: .2s;
+    }
 
-<div style="text-align: center; margin: 20px; ">
-    <div style="border: solid 1px gainsboro; background-color: whitesmoke;">
+    .glow .cardcontainer {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+
+    .glow .cardcontainer:hover {
+        box-shadow: 0 0 10px darkorange, 0 0 20px darkorange,
+            0 0 10px darkorange, 0 0 5 10px darkorange;
+        -webkit-animation: blink 0.7s infinite alternate;
+        animation: blink 0.7s infinite alternate;
+        transform: scale(1.02);
+        transition: .2s;
+    }
+
+    .glow .text {
+        font-size: 18px;
+        padding: 2rem 4rem;
+        font-weight: 800;
+        display: grid;
+        justify-content: center;
+    }
+
+    @-webkit-keyframes blink {
+        100% {
+            box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 20px darkorange,
+                0 0 10px darkorange, 0 0 10px darkorange;
+        }
+    }
+
+    @keyframes blink {
+        100% {
+            box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 20px darkorange,
+                0 0 10px darkorange, 0 0 10px darkorange;
+        }
+    }
+</style>
+
+<div class="glow" style="margin: 20px; text-align: center;">
+    <div class="cardcontainer" style="border: solid 1px gainsboro; border-radius: 20px; background-color: white;">
+        <div *ngIf="myproduct.isFavoris">
+            <span (click)="onFavoris()"
+                style="color: gold; font-size: 50px; cursor: pointer; text-align: right;">★</span>
+        </div>
+        <div *ngIf="!myproduct.isFavoris">
+            <span (click)="onFavoris()"
+                style="color: gold; font-size: 50px; cursor: pointer; text-align: right;">☆</span>
+        </div>
         <h2>{{myproduct.title | uppercase}}</h2>
-        <img width="300" src={{myproduct.imageUrl}}>
+        <img width="400" src={{myproduct.imageUrl}}>
         <div style="margin-left: 0; margin-right: 0;  text-align: center;">
             <p>{{myproduct.description}}</p>
-            <a [routerLink]="['product/', myproduct.id]" routerLinkActive="is-active"
-                [routerLinkActiveOptions]="{exact: true}">Voir plus</a>
+            <p class="voirplus"><a
+                    style="width: 70px; border: solid 1px gainsboro; border-radius: 10px; background: darkorange; color: whitesmoke; padding: 8px; cursor: pointer;"
+                    [routerLink]="
+                ['product/', myproduct.id]" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">Voir
+                    plus</a></p>
             <div
-                style="display: flex; width: 100%; background-color: gainsboro; flex-wrap: wrap; justify-content: space-evenly; align-items: center;">
+                style="display: flex; width: 100%; background-color: whitesmoke; flex-wrap: wrap; justify-content: space-evenly; align-items: center; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                 <button
                     style="width: 120px; margin: 10px; height: 50px; border: solid 1px gainsboro; background: darkorange; border-radius: 10px; cursor: pointer;">{{selectprice | currency: "EUR"}}</button>
                 <button
@@ -23,9 +76,8 @@ Mettre nombre d'articles + prix et total dans localstorage -->
                     <option value="">--Choisir une couleur--</option>
                     <option *ngFor="let color of myproduct.color" value="{{color}}">{{color}}</option>
                 </select>
-                <p
-                    style="margin: 10px; padding: 10px; border: solid 1px gainsboro; background: darkorange; border-radius: 10px;">
-                    {{myproduct.dateajout | date: "fullDate"}}
+                <p>
+                    Mise en ligne le {{myproduct.dateajout | date: "fullDate"}}
                 </p>
             </div>
         </div>
