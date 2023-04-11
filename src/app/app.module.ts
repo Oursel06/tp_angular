@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatInputModule,
     FormsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: "fr-FR" }],
