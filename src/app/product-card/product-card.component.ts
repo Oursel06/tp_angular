@@ -64,6 +64,12 @@ export class ProductCardComponent implements OnChanges {
       case "bleu":
         this.selectprice = this.myproduct.price + 9500;
         break;
+      case "vert":
+        this.selectprice = this.myproduct.price + 15400;
+        break;
+      case "jaune":
+        this.selectprice = this.myproduct.price + 3500;
+        break;
       case "option":
         this.selectprice = this.myproduct.price;
         break;

@@ -48,12 +48,10 @@ Mettre nombre d'articles + prix et total dans localstorage -->
 <div *ngIf="myproduct" class="glow" style="margin: 20px; text-align: center;">
     <div class="cardcontainer" style="border: solid 1px gainsboro; border-radius: 20px; background-color: white;">
         <div *ngIf="myproduct && myproduct.isFavoris">
-            <span (click)="onFavoris()"
-                style="color: gold; font-size: 50px; cursor: pointer; text-align: right;">★</span>
+            <span (click)="onFavoris()" style="color: gold; font-size: 40px; cursor: pointer;">★</span>
         </div>
         <div *ngIf="!(myproduct && myproduct.isFavoris)">
-            <span (click)="onFavoris()"
-                style="color: gold; font-size: 50px; cursor: pointer; text-align: right;">☆</span>
+            <span (click)="onFavoris()" style="color: gold; font-size: 40px; cursor: pointer;">☆</span>
         </div>
         <h2>{{myproduct.title | uppercase}}</h2>
         <img width="400" src={{myproduct.imageUrl}}>
@@ -68,17 +66,15 @@ Mettre nombre d'articles + prix et total dans localstorage -->
                 style="display: flex; width: 100%; background-color: whitesmoke; flex-wrap: wrap; justify-content: space-evenly; align-items: center; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                 <button
                     style="width: 120px; margin: 10px; height: 50px; border: solid 1px gainsboro; background: darkorange; border-radius: 10px; cursor: pointer;">{{selectprice | currency: "EUR"}}</button>
-                <button
-                    style="width: 50px; margin: 10px; height: 50px; border: solid 1px gainsboro; background: darkorange; border-radius: 10px; cursor: pointer;"
-                    (click)="onLike()">Like</button>
-                <p [ngStyle]="{color: myproduct.like > 0 ? 'green' : 'red'}">{{myproduct.like}}♥</p>
+                <span style="cursor: pointer;" (click)="onLike()">👍 <strong
+                        [ngStyle]="{color: myproduct.like > 0 ? 'green' : 'red'}">{{myproduct.like}}♥</strong></span>
                 <select *ngIf="myproduct.color" (change)="changecolor($event)" name="couleur" id="couleur">
                     <option value="">--Choisir une couleur--</option>
                     <option *ngFor="let color of myproduct.color" value="{{color}}">{{color}}</option>
                 </select>
-                <p>
+                <i>
                     Mise en ligne le {{myproduct.dateajout | date: "fullDate"}}
-                </p>
+                </i>
             </div>
         </div>
     </div>

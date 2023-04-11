@@ -60,13 +60,61 @@ const products = [
         id: 5,
         title: "Porsche 911 gt3 rs",
         description: "6 cylindres de 525cv",
-        imageUrl: "https://www.pngmart.com/files/22/Porsche-911-GT3-RS-Transparent-PNG.png",
+        imageUrl: "https://www.porschedriving.com/los-angeles/-/media/porschedrivinglosangeles/backgrounds/pdp/911_gt3_rs_lizardgreen.png",
         price: 196000,
         like: 0,
         isLiked: false,
         isFavoris: false,
         dateajout: new Date("04/11/2023"),
-        color: ["bleu", "orange", "blanc"]
+        color: ["bleu", "orange", "vert", "blanc"]
+    },
+    {
+        id: 6,
+        title: "Aston Martin DB11",
+        description: "V8 biturbo de 510cv",
+        imageUrl: "https://img.sm360.ca/ir/w640h390c/images/newcar/ca/2022/aston-martin/db11-coupe/v8/coupe/exteriorColors/2022_aston_martin_db11_v8_032_c1-1.png",
+        price: 201000,
+        like: 0,
+        isLiked: false,
+        isFavoris: false,
+        dateajout: new Date("04/11/2023"),
+        color: ["gris", "blanc", "bleu"]
+    },
+    {
+        id: 7,
+        title: "Mercedes-AMG GT R",
+        description: "V8 biturbo de 585cv",
+        imageUrl: "https://catalogphoto.goo-net.com/carphoto/20311508_201910c.jpg",
+        price: 190000,
+        like: 0,
+        isLiked: false,
+        isFavoris: false,
+        dateajout: new Date("04/11/2023"),
+        color: ["jaune", "vert", "gris"]
+    },
+    {
+        id: 8,
+        title: "Chevrolet Corvette C8",
+        description: "V8 de 495cv",
+        imageUrl: "https://larte-design.com/upload/iblock/chevrolet/corvette_1.png",
+        price: 90000,
+        like: 0,
+        isLiked: false,
+        isFavoris: false,
+        dateajout: new Date("04/11/2023"),
+        color: ["rouge", "blanc", "noir"]
+    },
+    {
+        id: 9,
+        title: "Nissan GT-R Nismo",
+        description: "V6 biturbo de 600cv",
+        imageUrl: "https://www.pngplay.com/wp-content/uploads/13/Nissan-GT-R-Nismo-Transparent-Background.png",
+        price: 205000,
+        like: 0,
+        isLiked: false,
+        isFavoris: false,
+        dateajout: new Date("04/11/2023"),
+        color: ["gris", "bleu", "noir"]
     }
 ]
 
