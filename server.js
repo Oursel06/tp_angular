@@ -17,7 +17,7 @@ const products = [
         like: 0,
         isLiked: false,
         isFavoris: false,
-        dateajout: new Date("03/16/2022"),
+        dateajout: new Date("03/16/2023"),
         color: ["rouge", "orange", "blanc", "noir", "gris", "bleu"]
     },
     {
@@ -29,7 +29,7 @@ const products = [
         like: 0,
         isLiked: false,
         isFavoris: false,
-        dateajout: new Date("03/27/2022"),
+        dateajout: new Date("03/27/2023"),
         color: ["noir", "blanc", "gris"]
     },
     {
@@ -41,7 +41,7 @@ const products = [
         like: 0,
         isLiked: false,
         isFavoris: false,
-        dateajout: new Date("03/19/2022"),
+        dateajout: new Date("03/19/2023"),
         color: ["rouge", "gris", "noir", "bleu"]
     },
     {
@@ -53,8 +53,20 @@ const products = [
         like: 0,
         isLiked: false,
         isFavoris: false,
-        dateajout: new Date("04/05/2022"),
+        dateajout: new Date("04/05/2023"),
         color: ["rouge", "orange", "gris", "noir"]
+    },
+    {
+        id: 5,
+        title: "Porsche 911 gt3 rs",
+        description: "6 cylindres de 525cv",
+        imageUrl: "https://www.pngmart.com/files/22/Porsche-911-GT3-RS-Transparent-PNG.png",
+        price: 196000,
+        like: 0,
+        isLiked: false,
+        isFavoris: false,
+        dateajout: new Date("04/11/2023"),
+        color: ["bleu", "orange", "blanc"]
     }
 ]
 

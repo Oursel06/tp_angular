@@ -10,8 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  myproduct!: Product;
-  myObservableProduct!: Observable<Product>
+  myObservableProduct!: Observable<any>
   id: number = 1;
 
   constructor(private productsService: ProductsService, private route: ActivatedRoute) {

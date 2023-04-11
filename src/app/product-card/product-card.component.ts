@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ProductsService } from '../services/products.service';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-product-card',
@@ -9,10 +10,12 @@ import { ProductsService } from '../services/products.service';
   providers: [DatePipe]
 })
 
-export class ProductCardComponent implements OnInit {
-  @Input() myproduct!: any
+export class ProductCardComponent implements OnChanges {
+  @Input() myproduct!: Product
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService) {
+    console.log(this.myproduct);
+  }
 
   onLike() {
     this.productsService.onAddLike(this.myproduct)
@@ -25,8 +28,15 @@ export class ProductCardComponent implements OnInit {
   // Gestion prix d'origine
   selectprice: number = 0;
 
-  ngOnInit() {
-    this.selectprice = this.myproduct.price
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes)
+    if (changes["myproduct"] && this.myproduct) {
+      this.selectprice = this.myproduct.price;
+    }
+    // if (this.myproduct) {
+    //   console.log(this.myproduct)
+    //   
+    // }
   }
 
   selected = "";

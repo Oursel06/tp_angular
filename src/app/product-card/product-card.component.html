@@ -45,13 +45,13 @@ Mettre nombre d'articles + prix et total dans localstorage -->
     }
 </style>
 
-<div class="glow" style="margin: 20px; text-align: center;">
+<div *ngIf="myproduct" class="glow" style="margin: 20px; text-align: center;">
     <div class="cardcontainer" style="border: solid 1px gainsboro; border-radius: 20px; background-color: white;">
-        <div *ngIf="myproduct.isFavoris">
+        <div *ngIf="myproduct && myproduct.isFavoris">
             <span (click)="onFavoris()"
                 style="color: gold; font-size: 50px; cursor: pointer; text-align: right;">★</span>
         </div>
-        <div *ngIf="!myproduct.isFavoris">
+        <div *ngIf="!(myproduct && myproduct.isFavoris)">
             <span (click)="onFavoris()"
                 style="color: gold; font-size: 50px; cursor: pointer; text-align: right;">☆</span>
         </div>

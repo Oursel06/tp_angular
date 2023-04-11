@@ -1,8 +1,0 @@
-@font-face {
-  font-family: 'carbon';
-  src: url('src/assets/font/carbon.ttf');
-}
-
-h2 {
-  font-family: 'carbon', sans-serif;
-}
