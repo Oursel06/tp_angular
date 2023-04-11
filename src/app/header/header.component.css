@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'carbon';
+  src: url('src/assets/font/carbon.ttf');
+}
+
+h1 {
+  font-family: 'carbon', sans-serif;
+  font-size: 50px;
+}
+
 ul {
     text-align: right;
     padding: 0;
