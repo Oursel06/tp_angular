@@ -1,41 +1,44 @@
 <div class="container">
     <div class="card px-4">
-        <p class="h8 py-3">Details paiement</p>
+        <p class="h8">Details paiement</p>
+        <i>Tous les champs ci-dessous sont OBLIGATOIRES</i> <br /><br />
         <div class="row gx-3">
             <div class="col-12">
                 <div class="d-flex flex-column">
                     <p class="text mb-1">Titulaire de la carte</p>
-                    <input [(ngModel)]="titulaire" class="form-control mb-3" type="text" placeholder="NOM Prénom">
+                    <input [(ngModel)]="titulaire" (input)="checkFields()" class="form-control mb-3" type="text"
+                        placeholder="NOM Prénom">
                 </div>
             </div>
             <div class="col-12">
                 <div class="d-flex flex-column">
                     <p class="text mb-1">Numéro carte</p>
-                    <input [(ngModel)]="numCard" maxlength="16" class="form-control mb-3" type="text"
-                        placeholder="1234 5678 9012 3456">
+                    <input [(ngModel)]="numCard" (input)="checkFields()" maxlength="16" class="form-control mb-3"
+                        type="text" placeholder="1234 5678 9012 3456">
                 </div>
             </div>
             <div class="col-6">
                 <div class="d-flex flex-column">
                     <p class="text mb-1">Date d'expiration</p>
-                    <input [(ngModel)]="dateExpiration" maxlength="7" class="form-control mb-3" type="text"
-                        placeholder="MM/YYYY">
+                    <input [(ngModel)]="dateExpiration" (input)="checkFields()" maxlength="7" class="form-control mb-3"
+                        type="text" placeholder="MM/YYYY">
                 </div>
             </div>
             <div class="col-6">
                 <div class="d-flex flex-column">
                     <p class="text mb-1">CVV/CVC</p>
-                    <input [(ngModel)]="cvcvv" maxlength="3" class="form-control mb-3 pt-2 " type="password"
-                        placeholder="***">
+                    <input [(ngModel)]="cvcvv" (input)="checkFields()" maxlength="3" class="form-control mb-3 pt-2 "
+                        type="password" placeholder="***">
                 </div>
             </div> <br>
             <div>
-                <div *ngIf="paiementTot" (click)=" paiementCard()" [routerLink]="['/paiement']"
-                    style="align-items: center;" class="btn btn-primary mb-3">
-                    <span class="ps-3">PAYER {{paiementTot}}€
+                <button [disabled]="!paiementOk" class="btn btn-primary"
+                    [ngClass]="{'disable': !paiementOk, 'enable': paiementOk}" *ngIf="paiementTot"
+                    [routerLink]="['/commande']" style="align-items: center;">
+                    <span class="ps-3">COMMANDER ({{paiementTot}}€)
                     </span>
                     <span class="fas fa-arrow-right"></span>
-                </div>
+                </button>
             </div>
         </div><br>
         <p>OU</p><bR>

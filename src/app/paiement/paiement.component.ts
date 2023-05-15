@@ -7,19 +7,22 @@ import { Component } from '@angular/core';
 })
 
 export class PaiementComponent {
+
   paiementTot = localStorage.getItem('totalPrice');
 
   // Gestion achat
+  paiementOk: Boolean = false;
   titulaire: string = "";
   numCard: string = "";
   dateExpiration: string = "";
   cvcvv: string = "";
-  paiementCard() {
-    if (this.titulaire != "" && this.numCard != null && this.dateExpiration != "" && this.cvcvv != null) {
-      alert(this.titulaire + this.dateExpiration + this.cvcvv + this.numCard);
+
+  // On vérifie si tous les champs sont remplis pour débloquer le bouton "commander"
+  checkFields(): void {
+    if (this.titulaire && this.numCard && this.dateExpiration && this.cvcvv) {
+      this.paiementOk = true;
     } else {
-      alert('Veuillez remplir les champs ci dessus.');
+      this.paiementOk = false;
     }
   }
-
 }

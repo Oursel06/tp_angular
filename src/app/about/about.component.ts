@@ -21,6 +21,7 @@ export class AboutComponent {
     this.calculateTotalPrice();
   }
 
+  // Modifie la quantité d'un produit
   updateQuantity(index: number, quantity: number): void {
     this.cartItems[index].quantity = quantity;
     this.calculateTotalPrice();
@@ -36,12 +37,14 @@ export class AboutComponent {
     this.cartItems = this.cartService.getCartItems();
   }
 
+  // Supprime le produit séléctionné et rafraichit l'affichage
   removeProduct(index: number): void {
     this.cartService.removeFromCart(index);
     this.loadCartItems();
     this.calculateTotalPrice();
   }
 
+  // Supprime tout le pannier
   clearCart(): void {
     localStorage.clear();
     this.cartItems = [];

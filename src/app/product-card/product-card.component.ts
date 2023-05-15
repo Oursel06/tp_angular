@@ -53,7 +53,7 @@ export class ProductCardComponent implements OnChanges {
           quantity: quantity
         };
         this.cartService.addToCart(item);
-        alert(item.title + " (x" + item.quantity + ") ajouté au panier.");
+        alert(item.title + " " + item.color + " (x" + item.quantity + ") ajouté au panier.");
       } else {
         alert('Veuillez selectionner une couleur.');
       }
