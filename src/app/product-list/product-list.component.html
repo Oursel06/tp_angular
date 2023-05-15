@@ -5,7 +5,7 @@
             [(ngModel)]="search" />
     </p>
     <p *ngIf="search">Résultat pour : {{search}}</p>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr);  background-color: gainsboro;">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr);">
         <app-product-card *ngFor="let product of (productsObservable | async | sortByName: search)"
             [myproduct]="product"></app-product-card>
     </div>
