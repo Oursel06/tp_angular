@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ProductsService } from '../services/products.service';
 import { Product } from '../models/product.model';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -13,7 +14,11 @@ import { Product } from '../models/product.model';
 export class ProductCardComponent implements OnChanges {
   @Input() myproduct!: Product
 
-  constructor(private productsService: ProductsService) {
+  constructor(private productsService: ProductsService, private cartService: CartService) { }
+
+  ngOnInit() {
+    // Appel à une fonction de chargement ou de mise à jour des données
+    this.cartService.getCartItems()
   }
 
   onLike() {
@@ -31,46 +36,29 @@ export class ProductCardComponent implements OnChanges {
     if (changes["myproduct"] && this.myproduct) {
       this.selectprice = this.myproduct.price;
     }
-    // if (this.myproduct) {
-    //   console.log(this.myproduct)
-    //   
-    // }
   }
 
   // Gestion ajout prix dans le local storage
   nbArticle: number = 0;
-  prixToAddTot: number = 0;
   voitureCouleur: string = "";
-  addPriceToLocalStorage() {
+
+  addProductToCart(product: Product, quantity: number) {
     if (this.nbArticle > 0) {
       if (this.voitureCouleur != "") {
-        const prixTot = localStorage.getItem('paniertot')
-        // Gestion du localstorage du prixtot a null
-        if (prixTot !== null) {
-          this.prixToAddTot = parseInt(prixTot, 10) + this.nbArticle * this.selectprice;
-        }
-        else {
-          this.prixToAddTot = this.nbArticle * this.selectprice;
-        }
-        localStorage.setItem('paniertot', this.prixToAddTot.toString());
-        console.log('Prix ajouté (prixToAddTot) : ' + this.prixToAddTot);
-        console.log('prix total panier (prixTot) : ' + prixTot);
-        alert(this.myproduct.title + " (x" + this.nbArticle + ") ajouté au panier.");
-        // localStorage.clear();
+        const item = {
+          id: product.id,
+          title: product.title,
+          color: this.voitureCouleur,
+          price: this.selectprice,
+          quantity: quantity
+        };
+        this.cartService.addToCart(item);
+        alert(item.title + " (x" + item.quantity + ") ajouté au panier.");
       } else {
         alert('Veuillez selectionner une couleur.');
       }
     } else {
       alert('Veuillez au moins sélectionner un article.');
-    }
-  }
-
-  limitinput(event: { target: any; }) {
-    const input = event.target;
-    const maxLength = 1; // Limite la longueur à 1 caractère
-
-    if (input.value.length > maxLength) {
-      input.value = input.value.slice(0, maxLength); // Tronque la valeur si elle dépasse la longueur maximale
     }
   }
 

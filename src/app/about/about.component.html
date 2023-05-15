@@ -1,17 +1,49 @@
 <div class="container">
-    <div class="card px-4">
+    <div class="card">
         <p class="h8 py-3">Panier</p>
-        <div class="row gx-3">
+        <div *ngIf="itemStorage">
+            <!-- Condition si le panier est rempli -->
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Couleur</th>
+                        <th>Quantité</th>
+                        <th>Prix unitaire</th>
+                        <th>Prix total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of cartItems; let i = index">
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.color }}</td>
+                        <td>
+                            <button *ngIf="item.quantity > 0" (click)="updateQuantity(i, item.quantity - 1)">-</button>
+                            {{ item.quantity }}
+                            <button (click)="updateQuantity(i, item.quantity + 1)">+</button>
+                        </td>
+                        <td>{{ item.price | currency:'EUR' }}</td>
+                        <td>{{ item.price * item.quantity | currency:'EUR' }}</td>
+                        <td><button (click)="removeProduct(i)">X</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td>Total</td>
+                        <td>{{ totalPrice | currency:'EUR' }}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
             <div>
-                <!-- Condition si le panier est rempli -->
-                <div [routerLink]="['/paiement']" style="align-items: center;" class="btn btn-primary mb-3">
+                <button class="btn btn-primary" (click)="clearCart()">Vider le panier</button> <button
+                    [routerLink]="['/paiement']" class="btn btn-primary mb-3">
                     <span class="ps-3">PROCEDER AU PAIEMENT</span>
                     <span class="fas fa-arrow-right"></span>
-                </div>
-
-                <!-- S'il est vide (localstorage vide) -->
-                <p>Votre panier est vide</p>
+                </button>
             </div>
-        </div><br>
+        </div>
+        <!-- S'il est vide (localstorage vide) -->
+        <p class="paniervidetxt" *ngIf="!itemStorage">Votre panier est vide</p>
     </div>
 </div>

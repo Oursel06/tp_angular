@@ -15,8 +15,8 @@
                     [routerLink]="
                 ['product/', myproduct.id]" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">Voir
                     plus</a></p>
-            <input class="nbvoiture" type="number" maxlength="1" [(ngModel)]="nbArticle" placeholder=" Entrez le prix">
-            <button (click)="addPriceToLocalStorage()">Ajouter au panier</button>
+            <input class="nbvoiture" type="number" min="0" [(ngModel)]="nbArticle" placeholder=" Entrez le prix">
+            <button (click)="addProductToCart(myproduct, nbArticle)">Ajouter au panier</button>
             <div
                 style="display: flex; width: 100%; background-color: whitesmoke; flex-wrap: wrap; justify-content: space-evenly; align-items: center; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                 <button

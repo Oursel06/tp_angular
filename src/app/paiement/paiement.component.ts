@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class PaiementComponent {
-  paiementTot = localStorage.getItem('paniertot');
+  paiementTot = localStorage.getItem('totalPrice');
 
   // Gestion achat
   titulaire: string = "";

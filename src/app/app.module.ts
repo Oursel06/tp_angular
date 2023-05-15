@@ -17,6 +17,7 @@ import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { PaiementComponent } from './paiement/paiement.component';
+import { CommandeComponent } from './commande/commande.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PaiementComponent } from './paiement/paiement.component';
     FooterComponent,
     ProductDetailComponent,
     AboutComponent,
-    PaiementComponent
+    PaiementComponent,
+    CommandeComponent
   ],
   exports: [
     SortBtDatePipe,
