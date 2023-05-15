@@ -13,7 +13,7 @@ export class HeaderComponent {
   title: string = '';
 
   ngOnInit() {
-    this.title = 'DEVYALCARS';
+    this.title = 'DEVCARS';
     this.search = '';
   }
 }
