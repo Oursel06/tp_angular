@@ -23,7 +23,8 @@
                     style="margin-right: 20px; background-color: darkcyan; border: none; padding: 10px; border-radius: 30px; color: aliceblue ">{{selectprice | currency: "EUR"}}</button>
                 <span style="cursor: pointer;" (click)="onLike()">👍 <strong
                         [ngStyle]="{color: myproduct.like > 0 ? 'green' : 'red'}">{{myproduct.like}}♥</strong></span>
-                <select *ngIf="myproduct.color" (change)="changecolor($event)" name="couleur" id="couleur">
+                <select *ngIf="myproduct.color" [(ngModel)]="voitureCouleur" (change)="changecolor($event)"
+                    name="couleur" id="couleur">
                     <option value="">--Choisir une couleur--</option>
                     <option *ngFor="let color of myproduct.color" value="{{color}}">{{color}}</option>
                 </select>

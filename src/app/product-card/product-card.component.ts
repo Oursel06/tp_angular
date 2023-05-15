@@ -40,20 +40,26 @@ export class ProductCardComponent implements OnChanges {
   // Gestion ajout prix dans le local storage
   nbArticle: number = 0;
   prixToAddTot: number = 0;
+  voitureCouleur: string = "";
   addPriceToLocalStorage() {
     if (this.nbArticle > 0) {
-      const prixTot = localStorage.getItem('paniertot')
-      // Gestion du localstorage du prixtot a null
-      if (prixTot !== null) {
-        this.prixToAddTot = parseInt(prixTot, 10) + this.nbArticle * this.selectprice;
+      if (this.voitureCouleur != "") {
+        const prixTot = localStorage.getItem('paniertot')
+        // Gestion du localstorage du prixtot a null
+        if (prixTot !== null) {
+          this.prixToAddTot = parseInt(prixTot, 10) + this.nbArticle * this.selectprice;
+        }
+        else {
+          this.prixToAddTot = this.nbArticle * this.selectprice;
+        }
+        localStorage.setItem('paniertot', this.prixToAddTot.toString());
+        console.log('Prix ajouté (prixToAddTot) : ' + this.prixToAddTot);
+        console.log('prix total panier (prixTot) : ' + prixTot);
+        alert(this.myproduct.title + " (x" + this.nbArticle + ") ajouté au panier.");
+        // localStorage.clear();
+      } else {
+        alert('Veuillez selectionner une couleur.');
       }
-      else {
-        this.prixToAddTot = this.nbArticle * this.selectprice;
-      }
-      localStorage.setItem('paniertot', this.prixToAddTot.toString());
-      console.log('Prix ajouté (prixToAddTot) : ' + this.prixToAddTot);
-      console.log('prix total panier (prixTot) : ' + prixTot);
-      alert(this.myproduct.title + " (x" + this.nbArticle + ") ajouté au panier.");
     } else {
       alert('Veuillez au moins sélectionner un article.');
     }
