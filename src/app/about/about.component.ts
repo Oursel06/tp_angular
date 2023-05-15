@@ -38,13 +38,14 @@ export class AboutComponent {
 
   removeProduct(index: number): void {
     this.cartService.removeFromCart(index);
-    this.cartItems.splice(index, 1);
+    this.loadCartItems();
     this.calculateTotalPrice();
   }
 
+
   clearCart(): void {
     this.cartService.clearCart();
-    this.cartItems = [];
-    this.calculateTotalPrice();
+    this.cartItems = this.cartService.getCartItems();
+    this.calculateTotalPrice()
   }
 }

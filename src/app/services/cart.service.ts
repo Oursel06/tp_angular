@@ -30,6 +30,7 @@ export class CartService {
         }
     }
 
+
     updateCartItem(index: number, quantity: number): void {
         if (index >= 0 && index < this.cartItems.length) {
             this.cartItems[index].quantity = quantity;

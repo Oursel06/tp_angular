@@ -44,6 +44,6 @@
             </div>
         </div>
         <!-- S'il est vide (localstorage vide) -->
-        <p class="paniervidetxt" *ngIf="!itemStorage">Votre panier est vide</p>
+        <p class="paniervidetxt" *ngIf="!itemStorage || totalPrice == 0">Votre panier est vide</p>
     </div>
 </div>
