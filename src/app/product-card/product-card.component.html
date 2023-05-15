@@ -61,7 +61,12 @@ Mettre nombre d'articles + prix et total dans localstorage -->
                     style="width: 70px; border: solid 1px gainsboro; border-radius: 10px; background: darkorange; color: whitesmoke; padding: 8px; cursor: pointer;"
                     [routerLink]="
                 ['product/', myproduct.id]" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">Voir
-                    plus</a></p>
+                    plus</a>
+
+                <input type="number" [(ngModel)]="priceToAdd" placeholder="Entrez le prix">
+                <button (click)="addPriceToLocalStorage()">Ajouter</button>
+
+            </p>
             <div
                 style="display: flex; width: 100%; background-color: whitesmoke; flex-wrap: wrap; justify-content: space-evenly; align-items: center; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                 <button

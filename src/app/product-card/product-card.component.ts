@@ -14,7 +14,6 @@ export class ProductCardComponent implements OnChanges {
   @Input() myproduct!: Product
 
   constructor(private productsService: ProductsService) {
-    console.log(this.myproduct);
   }
 
   onLike() {
@@ -29,7 +28,6 @@ export class ProductCardComponent implements OnChanges {
   selectprice: number = 0;
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes)
     if (changes["myproduct"] && this.myproduct) {
       this.selectprice = this.myproduct.price;
     }
@@ -37,6 +35,19 @@ export class ProductCardComponent implements OnChanges {
     //   console.log(this.myproduct)
     //   
     // }
+  }
+
+  // Gestion ajout prix dans le local storage
+  priceToAdd: number = 0;
+  addPriceToLocalStorage() {
+    if (this.priceToAdd > 0) {
+      // const currentPrice = localStorage.getItem('paniertot') || '0';
+      // const newPrice = parseInt(currentPrice, 10) + this.priceToAdd;
+      localStorage.setItem('paniertot', (this.priceToAdd + this.selectprice).toString());
+      console.log('Prix ajouté au local storage :', this.priceToAdd);
+    } else {
+      alert('Veuillez au moins sélectionner un article.');
+    }
   }
 
   selected = "";
