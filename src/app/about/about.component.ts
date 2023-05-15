@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { CartService } from '../services/cart.service';
 })
 export class AboutComponent {
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private cdRef: ChangeDetectorRef) {
     this.cartItems = this.cartService.getCartItems();
   }
 
@@ -42,10 +42,9 @@ export class AboutComponent {
     this.calculateTotalPrice();
   }
 
-
   clearCart(): void {
-    this.cartService.clearCart();
-    this.cartItems = this.cartService.getCartItems();
-    this.calculateTotalPrice()
+    localStorage.clear();
+    this.cartItems = [];
+    this.calculateTotalPrice();
   }
 }

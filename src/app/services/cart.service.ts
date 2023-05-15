@@ -38,11 +38,6 @@ export class CartService {
         }
     }
 
-    clearCart(): void {
-        localStorage.removeItem("panier");
-        localStorage.removeItem('totalPrice');
-    }
-
     private saveCart(): void {
         localStorage.setItem('panier', JSON.stringify(this.cartItems));
     }
