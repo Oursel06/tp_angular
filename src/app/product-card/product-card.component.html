@@ -1,50 +1,3 @@
-<!-- afficher input number
-récupérer ce nombre en cliquant sur acheter
-Mettre nombre d'articles + prix et total dans localstorage -->
-
-<style>
-    .voirplus:hover {
-        transform: scale(1.1);
-        transition: .2s;
-    }
-
-    .glow .cardcontainer {
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    }
-
-
-    .glow .cardcontainer:hover {
-        box-shadow: 0 0 10px #E0FFFE, 0 0 20px #E0FFFE,
-            0 0 10px #E0FFFE, 0 0 5 10px #E0FFFE;
-        -webkit-animation: blink 0.7s infinite alternate;
-        animation: blink 0.7s infinite alternate;
-        transform: scale(1.02);
-        transition: .2s;
-    }
-
-    .glow .text {
-        font-size: 18px;
-        padding: 2rem 4rem;
-        font-weight: 800;
-        display: grid;
-        justify-content: center;
-    }
-
-    @-webkit-keyframes blink {
-        100% {
-            box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 20px #E0FFFE,
-                0 0 10px #E0FFFE, 0 0 10px #E0FFFE;
-        }
-    }
-
-    @keyframes blink {
-        100% {
-            box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 20px #E0FFFE,
-                0 0 10px #E0FFFE, 0 0 10px #E0FFFE;
-        }
-    }
-</style>
-
 <div *ngIf="myproduct" class="glow" style="margin: 20px; text-align: center;">
     <div class="cardcontainer" style="border: solid 1px gainsboro; border-radius: 20px; background-color: white;">
         <div *ngIf="myproduct && myproduct.isFavoris">
@@ -61,16 +14,13 @@ Mettre nombre d'articles + prix et total dans localstorage -->
                     style="width: 70px; border: solid 1px gainsboro; border-radius: 10px; background: #79CBCA; color: whitesmoke; padding: 8px; cursor: pointer;"
                     [routerLink]="
                 ['product/', myproduct.id]" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">Voir
-                    plus</a>
-
-                <input type="number" [(ngModel)]="priceToAdd" placeholder="Entrez le prix">
-                <button (click)="addPriceToLocalStorage()">Ajouter</button>
-
-            </p>
+                    plus</a></p>
+            <input class="nbvoiture" type="number" maxlength="1" [(ngModel)]="nbArticle" placeholder=" Entrez le prix">
+            <button (click)="addPriceToLocalStorage()">Ajouter au panier</button>
             <div
                 style="display: flex; width: 100%; background-color: whitesmoke; flex-wrap: wrap; justify-content: space-evenly; align-items: center; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                 <button
-                  style="margin-right: 20px; background-color: darkcyan; border: none; padding: 10px; border-radius: 30px; color: aliceblue ">{{selectprice | currency: "EUR"}}</button>
+                    style="margin-right: 20px; background-color: darkcyan; border: none; padding: 10px; border-radius: 30px; color: aliceblue ">{{selectprice | currency: "EUR"}}</button>
                 <span style="cursor: pointer;" (click)="onLike()">👍 <strong
                         [ngStyle]="{color: myproduct.like > 0 ? 'green' : 'red'}">{{myproduct.like}}♥</strong></span>
                 <select *ngIf="myproduct.color" (change)="changecolor($event)" name="couleur" id="couleur">

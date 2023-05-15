@@ -38,15 +38,33 @@ export class ProductCardComponent implements OnChanges {
   }
 
   // Gestion ajout prix dans le local storage
-  priceToAdd: number = 0;
+  nbArticle: number = 0;
+  prixToAddTot: number = 0;
   addPriceToLocalStorage() {
-    if (this.priceToAdd > 0) {
-      // const currentPrice = localStorage.getItem('paniertot') || '0';
-      // const newPrice = parseInt(currentPrice, 10) + this.priceToAdd;
-      localStorage.setItem('paniertot', (this.priceToAdd + this.selectprice).toString());
-      console.log('Prix ajouté au local storage :', this.priceToAdd);
+    if (this.nbArticle > 0) {
+      const prixTot = localStorage.getItem('paniertot')
+      // Gestion du localstorage du prixtot a null
+      if (prixTot !== null) {
+        this.prixToAddTot = parseInt(prixTot, 10) + this.nbArticle * this.selectprice;
+      }
+      else {
+        this.prixToAddTot = this.nbArticle * this.selectprice;
+      }
+      localStorage.setItem('paniertot', this.prixToAddTot.toString());
+      console.log('Prix ajouté (prixToAddTot) : ' + this.prixToAddTot);
+      console.log('prix total panier (prixTot) : ' + prixTot);
+      alert(this.myproduct.title + " (x" + this.nbArticle + ") ajouté au panier.");
     } else {
       alert('Veuillez au moins sélectionner un article.');
+    }
+  }
+
+  limitinput(event: { target: any; }) {
+    const input = event.target;
+    const maxLength = 1; // Limite la longueur à 1 caractère
+
+    if (input.value.length > maxLength) {
+      input.value = input.value.slice(0, maxLength); // Tronque la valeur si elle dépasse la longueur maximale
     }
   }
 

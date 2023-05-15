@@ -1,0 +1,44 @@
+.voirplus:hover {
+    transform: scale(1.1);
+    transition: .2s;
+}
+
+.glow .cardcontainer {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+.glow .cardcontainer:hover {
+    box-shadow: 0 0 10px #E0FFFE, 0 0 20px #E0FFFE,
+        0 0 10px #E0FFFE, 0 0 5 10px #E0FFFE;
+    -webkit-animation: blink 0.7s infinite alternate;
+    animation: blink 0.7s infinite alternate;
+    transform: scale(1.02);
+    transition: .2s;
+}
+
+.glow .text {
+    font-size: 18px;
+    padding: 2rem 4rem;
+    font-weight: 800;
+    display: grid;
+    justify-content: center;
+}
+
+@-webkit-keyframes blink {
+    100% {
+        box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 20px #E0FFFE,
+            0 0 10px #E0FFFE, 0 0 10px #E0FFFE;
+    }
+}
+
+@keyframes blink {
+    100% {
+        box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 20px #E0FFFE,
+            0 0 10px #E0FFFE, 0 0 10px #E0FFFE;
+    }
+}
+
+.nbvoiture {
+    width: 30px;
+}
