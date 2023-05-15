@@ -14,8 +14,8 @@ Mettre nombre d'articles + prix et total dans localstorage -->
 
 
     .glow .cardcontainer:hover {
-        box-shadow: 0 0 10px darkorange, 0 0 20px darkorange,
-            0 0 10px darkorange, 0 0 5 10px darkorange;
+        box-shadow: 0 0 10px #E0FFFE, 0 0 20px #E0FFFE,
+            0 0 10px #E0FFFE, 0 0 5 10px #E0FFFE;
         -webkit-animation: blink 0.7s infinite alternate;
         animation: blink 0.7s infinite alternate;
         transform: scale(1.02);
@@ -32,15 +32,15 @@ Mettre nombre d'articles + prix et total dans localstorage -->
 
     @-webkit-keyframes blink {
         100% {
-            box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 20px darkorange,
-                0 0 10px darkorange, 0 0 10px darkorange;
+            box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 20px #E0FFFE,
+                0 0 10px #E0FFFE, 0 0 10px #E0FFFE;
         }
     }
 
     @keyframes blink {
         100% {
-            box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 20px darkorange,
-                0 0 10px darkorange, 0 0 10px darkorange;
+            box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 20px #E0FFFE,
+                0 0 10px #E0FFFE, 0 0 10px #E0FFFE;
         }
     }
 </style>
@@ -58,14 +58,14 @@ Mettre nombre d'articles + prix et total dans localstorage -->
         <div style="margin-left: 0; margin-right: 0;  text-align: center;">
             <p>{{myproduct.description}}</p>
             <p class="voirplus"><a
-                    style="width: 70px; border: solid 1px gainsboro; border-radius: 10px; background: darkorange; color: whitesmoke; padding: 8px; cursor: pointer;"
+                    style="width: 70px; border: solid 1px gainsboro; border-radius: 10px; background: #79CBCA; color: whitesmoke; padding: 8px; cursor: pointer;"
                     [routerLink]="
                 ['product/', myproduct.id]" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">Voir
                     plus</a></p>
             <div
                 style="display: flex; width: 100%; background-color: whitesmoke; flex-wrap: wrap; justify-content: space-evenly; align-items: center; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                 <button
-                    style="width: 120px; margin: 10px; height: 50px; border: solid 1px gainsboro; background: darkorange; border-radius: 10px; cursor: pointer;">{{selectprice | currency: "EUR"}}</button>
+                  style="margin-right: 20px; background-color: darkcyan; border: none; padding: 10px; border-radius: 30px; color: aliceblue ">{{selectprice | currency: "EUR"}}</button>
                 <span style="cursor: pointer;" (click)="onLike()">👍 <strong
                         [ngStyle]="{color: myproduct.like > 0 ? 'green' : 'red'}">{{myproduct.like}}♥</strong></span>
                 <select *ngIf="myproduct.color" (change)="changecolor($event)" name="couleur" id="couleur">

@@ -1,12 +1,11 @@
 <div style="text-align: center; position: relative;">
-    <p><input
-            style="width: 90%; padding: 10px; border-radius: 10px; background-color: whitesmoke; border: solid 2px gainsboro;"
-            placeholder="🔎  Rechercher une voiture..." matInput type="search" id="search" name="search"
-            [(ngModel)]="search" />
-    </p>
-    <p *ngIf="search">Résultat pour : {{search}}</p>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr);">
-        <app-product-card *ngFor="let product of (productsObservable | async | sortByName: search)"
-            [myproduct]="product"></app-product-card>
-    </div>
+  <p><input
+    placeholder="🔎  Rechercher une voiture..." matInput type="search" id="search" name="search"
+    [(ngModel)]="search"/>
+  </p>
+  <p *ngIf="search">Résultat pour : {{search}}</p>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr);">
+    <app-product-card *ngFor="let product of (productsObservable | async | sortByName: search)"
+                      [myproduct]="product"></app-product-card>
+  </div>
 </div>
