@@ -3,28 +3,61 @@
   src: url('src/assets/font/carbon.ttf');
 }
 
+ul.bar-nav{
+  list-style: none;
+  display: flex;
+  background-color: lightcyan;
+  text-transform: uppercase;
+  font-family: 'Nike Total', sans-serif;
+}
+li {
+  padding: 30px;
+}
+
+li a {
+  color: black;
+  text-decoration: none;
+  margin-left: 50px;
+  font-size: 20px;
+}
+
+* {
+  outline:none;
+  list-style:none;
+  text-decoration:none;
+  box-sizing:border-box;
+}
+
+.wrapper {
+  margin-bottom: 50px;
+}
+
 h1 {
-  font-family: 'carbon', sans-serif;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  width:300px;
+  margin:0 auto;
+  position:relative;
+  height: 30px;
+  font-family: 'Nike Total', sans-serif;
   font-size: 50px;
 }
 
-ul {
-    text-align: right;
-    padding: 0;
-    background: gainsboro;
-    font-family: Arial, sans serif;
-    font-size: 12px;
-    text-transform: uppercase;
+h1:after {
+  content:"";
+  display: block;
+  height: 80%;
+  width: 100%;
+  background: lightcyan;
+  position: absolute;
+  top:10px;left:-5px;
+  z-index: -1;
+  animation: monAnim 1s infinite ease-in-out alternate;
 }
 
-li {
-    display: inline-block;
-}
 
-a {
-    display: block;
-    font-size: large;
-    padding: 15px;
-    color: darkorange;
-    text-decoration: none;
+@keyframes monAnim {
+  0%{transform: translateY(4px) translateX(-12px);}
+  100%{transform: translateY(-12px) translateX(4px);}
 }
