@@ -24,15 +24,10 @@ body {
     text-align: center;
 }
 
-.container .h8 {
-    font-size: 30px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
 .paniervidetxt {
-    font-size: 20px;
+    font-size: 24px;
+    margin-top: 180px;
+    margin-bottom: 180px;
     text-decoration: solid;
     font-family: 'Nike Total', sans-serif;
 }
@@ -61,4 +56,56 @@ body {
 .btn.btn-primary:hover .fas.fa-arrow-right {
     transform: translate(15px);
     transition: transform 0.2s ease-in;
+}
+
+/* Styles généraux pour le tableau */
+.cart-table {
+    background-color: rgba(250, 250, 250, 0.8);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Styles pour les en-têtes de colonnes */
+.cart-table thead th {
+    background-color: darkgray;
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+}
+
+/* Styles pour les cellules de données */
+.cart-table tbody td {
+    border: 1px solid #ddd;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    white-space: nowrap;
+}
+
+/* Styles pour les boutons de quantité */
+.cart-table button {
+    padding: 8px 12px;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cart-table button:hover {
+    background-color: #666;
+    color: #fff;
+}
+
+/* Styles pour la ligne de total */
+.cart-table tfoot td {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Styles pour les icônes */
+.cart-table .icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    background-color: #ccc;
 }

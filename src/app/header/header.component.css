@@ -3,13 +3,14 @@
   src: url('src/assets/font/carbon.ttf');
 }
 
-ul.bar-nav{
+ul.bar-nav {
   list-style: none;
   display: flex;
   background-color: lightcyan;
   text-transform: uppercase;
   font-family: 'Nike Total', sans-serif;
 }
+
 li {
   padding: 30px;
 }
@@ -22,10 +23,10 @@ li a {
 }
 
 * {
-  outline:none;
-  list-style:none;
-  text-decoration:none;
-  box-sizing:border-box;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 .wrapper {
@@ -33,31 +34,37 @@ li a {
 }
 
 h1 {
-  text-align:center;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  width:300px;
-  margin:0 auto;
-  position:relative;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 300px;
+  margin: 0 auto;
+  position: relative;
   height: 30px;
   font-family: 'Nike Total', sans-serif;
   font-size: 50px;
 }
 
 h1:after {
-  content:"";
+  content: "";
   display: block;
   height: 80%;
   width: 100%;
   background: lightcyan;
   position: absolute;
-  top:10px;left:-5px;
+  top: 10px;
+  left: -5px;
   z-index: -1;
   animation: monAnim 1s infinite ease-in-out alternate;
 }
 
 
 @keyframes monAnim {
-  0%{transform: translateY(4px) translateX(-12px);}
-  100%{transform: translateY(-12px) translateX(4px);}
+  0% {
+    transform: translateY(4px) translateX(-12px);
+  }
+
+  100% {
+    transform: translateY(-12px) translateX(4px);
+  }
 }

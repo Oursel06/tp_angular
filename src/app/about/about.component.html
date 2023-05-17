@@ -1,6 +1,5 @@
 <div class="container">
     <div class="card">
-        <p class="h8 py-3">Panier</p>
         <div *ngIf="itemStorage">
             <!-- Condition si le panier est rempli -->
             <table class="cart-table">
@@ -28,22 +27,22 @@
                         <td><button (click)="removeProduct(i)">X</button></td>
                     </tr>
                     <tr>
-                        <td colspan="4"></td>
-                        <td>Total</td>
-                        <td>{{ totalPrice | currency:'EUR' }}</td>
+                        <td colspan="4">Total</td>
+                        <td colspan="2">{{ totalPrice | currency:'EUR' }}</td>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
-            <div>
-                <button class="btn btn-primary" (click)="clearCart()">Vider le panier</button> <button
-                    [routerLink]="['/paiement']" class="btn btn-primary mb-3">
+            <div style="margin-bottom: 140px;">
+                <button class="btn btn-primary" (click)="clearCart()">Vider le
+                    panier</button> <button [routerLink]="['/paiement']" class="btn btn-primary mb-3">
                     <span class="fas fa-arrow-right"></span>
                     <span class="ps-3">PROCDER AU PAIEMENT</span>
                 </button>
             </div>
         </div>
         <!-- S'il est vide (localstorage vide) -->
-        <p class="paniervidetxt" *ngIf="!itemStorage || totalPrice == 0">Votre panier est vide</p>
+        <p class="paniervidetxt" *ngIf="!itemStorage || totalPrice == 0">Votre panier est
+            vide</p>
     </div>
 </div>
