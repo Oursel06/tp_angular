@@ -4,8 +4,16 @@
     [(ngModel)]="search"/>
   </p>
   <p *ngIf="search">Résultat pour : {{search}}</p>
+  <select (change)="triDate($event)">
+    <option disabled selected value="">Date </option>
+    <option value="asc">Date Ascendant</option>
+    <option value="desc">Date Descendant</option>
+  </select>
   <div style="display: grid; grid-template-columns: repeat(3, 1fr);">
-    <app-product-card *ngFor="let product of (productsObservable | async | sortByName: search)"
-                      [myproduct]="product"></app-product-card>
+    <app-product-card *ngFor="let product of (sortedProducts | async | sortByName: search)"></app-product-card>
+ 
+
+    <!-- <app-product-card *ngFor="let product of (productsObservable | async | sortByName: search | sortByDate : nameTriDate )"
+                      [myproduct]="product"></app-product-card> -->
   </div>
 </div>

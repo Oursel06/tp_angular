@@ -6,7 +6,7 @@ registerLocaleData(localeFr);
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { SortBtDatePipe } from './pipes/sort-bt-date.pipe';
+import { SortByDatePipe } from './pipes/sort-by-date.pipe';
 import { FormsModule } from '@angular/forms';
 import { SortByNamePipe } from './pipes/sort-by-name.pipe';
 import { ProductListComponent } from './product-list/product-list.component';
@@ -23,7 +23,7 @@ import { CommandeComponent } from './commande/commande.component';
   declarations: [
     AppComponent,
     ProductCardComponent,
-    SortBtDatePipe,
+    SortByDatePipe,
     SortByNamePipe,
     ProductListComponent,
     HeaderComponent,
@@ -33,10 +33,6 @@ import { CommandeComponent } from './commande/commande.component';
     PaiementComponent,
     CommandeComponent
   ],
-  exports: [
-    SortBtDatePipe,
-    SortByNamePipe
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,7 +40,9 @@ import { CommandeComponent } from './commande/commande.component';
     MatInputModule,
     FormsModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "fr-FR" }],
+  providers: [{ 
+    provide: LOCALE_ID, 
+    useValue: "fr-FR" }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
