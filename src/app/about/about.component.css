@@ -65,7 +65,6 @@ body {
     width: 100%;
 }
 
-/* Styles pour les en-têtes de colonnes */
 .cart-table thead th {
     background-color: darkgray;
     color: #fff;
@@ -73,7 +72,6 @@ body {
     text-align: left;
 }
 
-/* Styles pour les cellules de données */
 .cart-table tbody td {
     border: 1px solid #ddd;
     padding-bottom: 10px;
@@ -81,7 +79,6 @@ body {
     white-space: nowrap;
 }
 
-/* Styles pour les boutons de quantité */
 .cart-table button {
     padding: 8px 12px;
     background-color: #ccc;
@@ -95,17 +92,7 @@ body {
     color: #fff;
 }
 
-/* Styles pour la ligne de total */
 .cart-table tfoot td {
     text-align: right;
     font-weight: bold;
-}
-
-/* Styles pour les icônes */
-.cart-table .icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    background-color: #ccc;
 }
